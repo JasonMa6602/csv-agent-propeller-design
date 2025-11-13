@@ -1,0 +1,31 @@
+
+## 📄 basic_agent.py
+```python
+import pandas as pd
+import os
+
+class CSVAgent:
+    def __init__(self, data_folder="data"):
+        self.data_folder = data_folder
+        self.load_all_csv()
+    
+    def load_all_csv(self):
+        """Load all CSV files from data folder"""
+        self.files = {}
+        for file in os.listdir(self.data_folder):
+            if file.endswith(".csv"):
+                name = file.replace(".csv", "")
+                self.files[name] = pd.read_csv(f"{self.data_folder}/{file}")
+                print(f"Loaded {file} with {len(self.files[name])} rules")
+    
+    def query_rules(self, question):
+        """Simple rule query function"""
+        print(f"Query: {question}")
+        print("Available rule files:", list(self.files.keys()))
+        return "Use CSV rules to answer design questions"
+
+# Usage
+if __name__ == "__main__":
+    agent = CSVAgent("data")
+    result = agent.query_rules("Check propeller design rules")
+    print(result)

@@ -1,0 +1,11 @@
+csv-agent-propeller-design/
+├── README.md
+├── data/
+│   ├── hard_code_priority.csv
+│   ├── result_assertion.csv
+│   ├── SPP_main_parameters.csv
+│   ├── cross_csv_reference.csv
+│   ├── validation_cases_B_Gawn.csv
+│   ├── propeller_type.csv
+│   └── constraint_rules.csv
+└── basic_agent.py
